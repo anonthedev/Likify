@@ -29,11 +29,10 @@ export default function GetLikedSongs() {
     fetch(" https://api.spotify.com/v1/me/tracks", userParams)
       .then((data) => data.json())
       .then((resp) => {
-        console.log(resp);
+        // console.log(resp);
         context.setLikedSongs([...resp.items]);
         setLoading(false);
       });
-    // .then(()=>{console.log(LikedSongs)})
   }, []);
 
   if (context.LikedSongs.length !== 0) {
@@ -75,9 +74,9 @@ export default function GetLikedSongs() {
                             key={artist.id}
                             target="_blank"
                           >
-                            <p className="text-sm text-[#868484] flex flex-row gap-1">
+                            <p key={artist.id} className="text-sm text-[#868484] flex flex-row gap-1">
                               {index ? ", " : ""}
-                              <p className="underline">{artist.name}</p>
+                              <span className="underline">{artist.name}</span>
                             </p>
                           </a>
                         ))}
