@@ -13,9 +13,12 @@ export default function CreatePlaylist() {
   context.LikedSongs.map((track) => {
     trackURIs.push(track.track.uri);
   });
-  if (trackURIs.length > 100) {
-    const x = trackURIs.splice(0, 95);
-    tooManyTracks.push(trackURIs, x);
+  if (trackURIs.length > 99) {
+    while (trackURIs.length > 0) {
+      const x = trackURIs.splice(0, 98);
+      tooManyTracks.push(x);
+      // console.log(tooManyTracks);
+    }
   }
 
   function addTracksToPlaylist(tracks, playlistId) {
@@ -54,13 +57,15 @@ export default function CreatePlaylist() {
         return data.json();
       })
       .then((resp) => {
-        console.log(resp);
+        // console.log(resp);
         return resp.id;
       })
       .then((id) => {
         if (tooManyTracks.length != 0) {
-          tooManyTracks.map((chunksOfTrackURIs) => {
-            addTracksToPlaylist(chunksOfTrackURIs, id);
+          tooManyTracks.map((chunksOfTrackURIs, index) => {
+            setTimeout(() => {
+              addTracksToPlaylist(chunksOfTrackURIs, id);
+            }, index * 1000);
           });
         } else {
           addTracksToPlaylist(trackURIs, id);
