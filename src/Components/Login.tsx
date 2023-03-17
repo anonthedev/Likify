@@ -50,7 +50,7 @@ export default function Login() {
         <p className="text-[red] max-w-[40ch]">
           This app is not public yet please leave your mail under this{" "}
           <a
-            href="https://twitter.com/anonthedev_2/status/1636736624598851586?s=20"
+            href="https://twitter.com/anonthedev_2/status/1636738390346399744?s=20"
             target={"_blank"}
           >
             <span className="underline text-blue-600">tweet</span>
