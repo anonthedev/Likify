@@ -3,6 +3,7 @@ import SessionProviders from "./sessionProvider";
 import ContextProvider from "./contextProvider";
 import { Raleway, Nunito } from "next/font/google";
 import SignOut from "@/Components/SignOut";
+import Footer from "@/Components/Footer";
 
 export const metadata = {
   title: "Likify",
@@ -33,6 +34,7 @@ export default function RootLayout({
           <SessionProviders>
             <SignOut />
             {children}
+            <Footer/>
           </SessionProviders>
         </ContextProvider>
       </body>

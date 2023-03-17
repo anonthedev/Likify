@@ -1,12 +1,16 @@
 "use client";
 
-import { useContext } from "react";
+import { useContext, useState, useRef } from "react";
 import { GlobalContext } from "@/app/contextProvider";
 import { useSession } from "next-auth/react";
+import spotifyLogo from "./resources/spotifyLogo.png";
+import Image from "next/image";
 
 export default function CreatePlaylist() {
   const { data: session } = useSession();
   const context = useContext(GlobalContext);
+  const btnValueRef = useRef(null);
+  const [showPlaylistCreated, setShowPlaylistCreated] = useState(false);
 
   const trackURIs = [];
   const tooManyTracks = [];
@@ -21,6 +25,14 @@ export default function CreatePlaylist() {
     }
   }
 
+  console.log(btnValueRef.current)
+
+  // if (btnValueRef.current.value === "Playlist Created") {
+  //   setTimeout(() => {
+  //     setShowPlaylistCreated(false);
+  //   }, 4000);
+  // }
+
   function addTracksToPlaylist(tracks, playlistId) {
     fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
       method: "POST",
@@ -32,6 +44,8 @@ export default function CreatePlaylist() {
         uris: tracks,
         position: 0,
       }),
+    }).then(() => {
+      setShowPlaylistCreated(true);
     });
   }
 
@@ -73,12 +87,17 @@ export default function CreatePlaylist() {
       });
   }
   return (
-    <div>
+    <div className="w-screen justify-center items-center flex flex-row gap-4">
       <button
-        className="flex flex-row py-2 px-6 items-center bg-[#1bc257] rounded text-black font-[500] font-raleway"
+        ref={btnValueRef}
+        className={`flex flex-row py-2 px-6 gap-2 items-center bg-[#1bc257] rounded text-black font-[500] font-raleway ${
+          showPlaylistCreated ? "opacity-50" : "opacity-100"
+        }`}
         onClick={CreatePlaylistFunc}
+        disabled={showPlaylistCreated ? true : false}
       >
-        Create Playlist
+        <Image src={spotifyLogo} alt="spotify Logo" width={50} height={50} />
+        {showPlaylistCreated ? "Playlist Created" : "Create Playlist"}
       </button>
     </div>
   );

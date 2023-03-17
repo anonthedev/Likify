@@ -29,6 +29,17 @@ export default function Login() {
   // }
   return (
     <section className="flex flex-col items-center gap-4">
+      <div className="flex flex-col text-center gap-4">
+        <h1 className="text-5xl text-[#fdc22c] font-raleway font-bold">
+          Likify
+        </h1>
+        <p className="max-w-[30ch] text-gray-300">
+          Now you can share your spotify liked songs collection
+        </p>
+        <p className="text-gray-300">
+          Made by <a className="underline" href="https://twitter.com/anonthedev_2">Anon</a>
+        </p>
+      </div>
       <button
         className="flex flex-row py-2 px-6 items-center bg-[#1bc257] rounded text-black font-[500] font-raleway"
         onClick={() => {
