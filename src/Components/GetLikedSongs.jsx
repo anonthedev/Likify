@@ -77,6 +77,7 @@ if (Loading) {
               <p className="text-gray-300">
                 Made by{" "}
                 <a
+                target={"_blank"}
                   className="underline"
                   href="https://twitter.com/anonthedev_2"
                 >

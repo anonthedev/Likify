@@ -37,7 +37,12 @@ export default function Login() {
           Now you can share your spotify liked songs collection
         </p>
         <p className="text-gray-300">
-          Made by <a className="underline" href="https://twitter.com/anonthedev_2">Anon</a>
+          Made by{" "}
+          <a
+           target={"_blank"} 
+          className="underline" href="https://twitter.com/anonthedev_2">
+            Anon
+          </a>
         </p>
       </div>
       <button
