@@ -46,18 +46,6 @@ export default function Login() {
             Anon
           </a>
         </p>
-
-        <p className="text-[red] max-w-[40ch]">
-          This app is not public yet please leave your mail under this{" "}
-          <a
-            href="https://twitter.com/anonthedev_2/status/1636738390346399744?s=20"
-            target={"_blank"}
-          >
-            <span className="underline text-blue-600">tweet</span>
-          </a>
-          , when you get a reply then you can use this app. <br /> (if you have
-          got a reply please proceed)
-        </p>
       </div>
       <button
         className="flex flex-row py-2 px-6 items-center bg-[#1bc257] rounded text-black font-[500] font-raleway"
