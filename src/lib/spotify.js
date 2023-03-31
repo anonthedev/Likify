@@ -1,7 +1,6 @@
 import SpotifyWebApi from "spotify-web-api-node";
 
 const scopes = [
-  "user-read-email",
   "user-library-read",
   "playlist-modify-private",
   "playlist-modify-public",
