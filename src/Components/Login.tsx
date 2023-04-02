@@ -50,7 +50,7 @@ export default function Login() {
       <button
         className="flex flex-row py-2 px-6 items-center bg-[#1bc257] rounded text-black font-[500] font-raleway"
         onClick={() => {
-          signIn();
+          signIn("spotify");
         }}
       >
         <Image src={spotifyLogo} alt="" width={50} height={50}></Image>Sign in
