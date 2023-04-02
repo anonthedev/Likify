@@ -1,6 +1,6 @@
 "use client";
 
-import { useSession, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { useEffect, useState, useContext } from "react";
 import { GlobalContext } from "@/app/contextProvider";
 import CreatePlaylist from "./CreatePlaylist";
