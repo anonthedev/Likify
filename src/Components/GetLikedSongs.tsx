@@ -27,7 +27,7 @@ export default function GetLikedSongs() {
   console.log(status);
 
   useEffect(() => {
-    const getAllPages = async (url) => {
+    const getAllPages = async (url: string) => {
       var userParams = {
         method: "GET",
         headers: {
@@ -40,7 +40,7 @@ export default function GetLikedSongs() {
         .then((data) => data.json())
         .then(async (resp) => {
           // console.log(resp);
-          context.setLikedSongs((prev) => [...prev, ...resp.items]);
+          context.setLikedSongs((prev: string[]) => [...prev, ...resp.items]);
           if (resp.next) {
             getAllPages(resp.next);
           } else {
@@ -53,8 +53,8 @@ export default function GetLikedSongs() {
   }, [accessToken]);
 
   if (context.LikedSongs.length !== 0) {
-    context.LikedSongs.map((LikedSong) => {
-      LikedSong.track.artists.map((artist) => {
+    context.LikedSongs.map((LikedSong: any) => {
+      LikedSong.track.artists.map((artist: any) => {
         Artists.push(artist.name);
       });
     });
@@ -88,7 +88,7 @@ if (Loading) {
             <CreatePlaylist />
             <div className="grid grid-cols-3 pl-20 md:flex md:flex-col lg:pl-8 gap-10 mt-10 font-nunito">
               {context.LikedSongs.length !== 0
-                ? context.LikedSongs.map((LikedSong) => (
+                ? context.LikedSongs.map((LikedSong: any) => (
                     <a
                       className="flex flex-row w-fit gap-4"
                       href={LikedSong.track.external_urls.spotify}
@@ -117,7 +117,7 @@ if (Loading) {
                             </p>
                           </div>
                           <div className="flex flex-row flex-wrap">
-                            {LikedSong.track.artists.map((artist, index) => (
+                            {LikedSong.track.artists.map((artist: any, index: number) => (
                               <a
                                 className=""
                                 href={artist.external_urls.spotify}

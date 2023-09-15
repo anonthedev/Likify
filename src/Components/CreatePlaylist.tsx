@@ -12,15 +12,15 @@ export default function CreatePlaylist() {
   const btnValueRef = useRef(null);
   const [showPlaylistCreated, setShowPlaylistCreated] = useState(false);
 
-  const trackURIs = [];
-  const tooManyTracks = [];
-  context.LikedSongs.map((track) => {
+  const trackURIs: string[] = [];
+  const tooManyTracks: string[][] = [];
+  context.LikedSongs.map((track: any) => {
     trackURIs.push(track.track.uri);
   });
   if (trackURIs.length > 99) {
     while (trackURIs.length > 0) {
-      const x = trackURIs.splice(0, 98);
-      tooManyTracks.push(x);
+      const chunckOfTracks: string[] = trackURIs.splice(0, 98);
+      tooManyTracks.push(chunckOfTracks);
       // console.log(tooManyTracks);
     }
   }
@@ -33,7 +33,7 @@ export default function CreatePlaylist() {
   //   }, 4000);
   // }
 
-  function addTracksToPlaylist(tracks, playlistId) {
+  function addTracksToPlaylist(tracks: string[], playlistId: string) {
     fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
       method: "POST",
       headers: {

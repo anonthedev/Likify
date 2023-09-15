@@ -23,6 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/Components/GetLikedSongs.jsx", "src/Components/CreatePlaylist.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/Components/GetLikedSongs.tsx", "src/Components/CreatePlaylist.tsx", "src/pages/api/auth/[...nextauth].jsx"],
   "exclude": ["node_modules"]
 }
